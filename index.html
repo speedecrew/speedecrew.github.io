@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-BZ7VDNWT2C"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-BZ7VDNWT2C");
+    </script>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="css/index.css" />
+
+    <title>Name-day Calendar</title>
+  </head>
+  <body>
+    <script>
+      function redirectToUrl() {
+        const apps = {
+          Android:
+            "https://play.google.com/store/apps/details?id=com.kvidodev.sparrow",
+          iOS: "https://apps.apple.com/app/speede-scooters/id6503287962",
+        };
+
+        var userAgent = window.navigator.userAgent,
+          platform = window.navigator.platform,
+          macosPlatforms = ["Macintosh", "MacIntel", "MacPPC", "Mac68K"],
+          windowsPlatforms = ["Win32", "Win64", "Windows", "WinCE"],
+          iosPlatforms = ["iPhone", "iPad", "iPod"],
+          os = null;
+
+        if (
+          macosPlatforms.indexOf(platform) !== -1 ||
+          iosPlatforms.indexOf(platform) !== -1
+        ) {
+          os = "iOS";
+          gtag("event", "ios", {
+            event_category: "Redirect",
+            event_action: "iOS",
+            event_label: "iOS redirect",
+          });
+          window.location.replace(apps.iOS);
+        } else if (
+          windowsPlatforms.indexOf(platform) !== -1 ||
+          /Android/.test(userAgent)
+        ) {
+          os = "Android";
+          gtag("event", "android", {
+            event_category: "Redirect",
+            event_action: "Android",
+            event_label: "Android redirect",
+          });
+          window.location.replace(apps.Android);
+        } else if (!os && /Linux/.test(platform)) {
+          os = "Linux";
+          gtag("event", "ios", {
+            event_category: "Redirect",
+            event_action: "iOS",
+            event_label: "iOS redirect",
+          });
+          window.location.replace(apps.iOS);
+        }
+
+        return os;
+      }
+      window.onload = function () {
+        redirectToUrl();
+      };
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
